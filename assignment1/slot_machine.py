@@ -23,3 +23,18 @@ class Purse():
     # show balance on purse    
     def balance(self):
         return self.money
+        
+
+class Column():
+    
+    def __init__(self):
+        self.faces = [emoji.emojize(':red_apple:'),
+                     emoji.emojize(':pear:'),
+                     emoji.emojize(':tangerine:')]
+        self.face = None
+        
+    def change_face(self):
+        self.face = choice(self.faces)
+        return self.face
+        
+        
