@@ -37,4 +37,23 @@ class Column():
         self.face = choice(self.faces)
         return self.face
         
+class Slot(Column):
+    
+    def __init__(self):
+        self.more = 1
+        
+        self.faces = [emoji.emojize(':red_apple:'),
+                     emoji.emojize(':pear:'),
+                     emoji.emojize(':tangerine:')]
+    
+    # Create three columns  
+    def pull_handle(self):
+        self.a = Column.change_face(self)
+        self.b = Column.change_face(self)
+        self.c = Column.change_face(self)
+        
+    # Show faces 
+    def show_slot(self):
+        print(self.a + self.b + self.c)
+        
         
