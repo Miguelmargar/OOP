@@ -23,7 +23,8 @@ class Purse():
     # show balance on purse    
     def balance(self):
         return self.money
-        
+      
+purse = Purse()  
 
 class Column():
     
@@ -56,4 +57,19 @@ class Slot(Column):
     def show_slot(self):
         print(self.a + self.b + self.c)
         
+        # obtain and partially handle user input
+    def take_bet(self):
+        self.bet = input("how much do you bet: ")
         
+        if (self.bet == "n") or (self.bet == "N"):
+            self.more = False
+            print("You have now exited the game")
+        else:
+            try:
+                self.bet = int(self.bet)
+            except ValueError:
+                self.take_bet()
+            if self.bet > purse.balance() or self.bet < 2:
+                self.take_bet()
+            else:
+                return self.bet
