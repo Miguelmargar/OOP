@@ -27,6 +27,9 @@ class Purse():
 purse = Purse()  
 
 class Column():
+    """
+    Column class created to randomise options results
+    """
     
     def __init__(self):
         self.faces = [emoji.emojize(':red_apple:'),
@@ -39,6 +42,9 @@ class Column():
         return self.face
         
 class Slot(Column):
+    """
+    Slot class created with functionality showing 3 results, handling of purse and user input and output
+    """
     
     def __init__(self):
         self.more = 1
