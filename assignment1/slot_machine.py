@@ -73,3 +73,20 @@ class Slot(Column):
                 self.take_bet()
             else:
                 return self.bet
+                
+        # handle user input within purse
+    def score_slot(self):
+        bet = self.bet
+        if (self.a == self.b) and (self.b == self.c) and (self.a == self.c):
+            purse.add(bet)
+            print("your score:", (bet * 2), "- You have:", purse.balance())
+            print()
+        elif (self.a == self.b) or (self.a == self.c) or (self.b == self.c):
+            purse.add(bet / 2)
+            print("Your score:", bet * 1.5, "- You have:", purse.balance())
+            print()
+        else:
+            purse.debit(bet)
+            print("Your score: 0 - You have:", purse.balance())
+            print()
+            
