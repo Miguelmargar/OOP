@@ -100,6 +100,9 @@ class Slot(Column):
             print()
             
 def run_slot_machine():
+    """
+    Runs classes with slot machine classes together
+    """
     
     print("====== \"SLOT MACHINE\" ======")
     print("Minimum bet is 2. Type \"N\" to exit.")
