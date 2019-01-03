@@ -63,6 +63,9 @@ class Slot(Column):
     def show_slot(self):
         print(self.a + self.b + self.c)
         
+    def cont(self):
+        return self.more
+        
         # obtain and partially handle user input
     def take_bet(self):
         self.bet = input("how much do you bet: ")
@@ -96,3 +99,22 @@ class Slot(Column):
             print("Your score: 0 - You have:", purse.balance())
             print()
             
+def run_slot_machine():
+    
+    print("====== \"SLOT MACHINE\" ======")
+    print("Minimum bet is 2. Type \"N\" to exit.")
+    print("You have", purse.balance())
+    print()
+    
+    slot = Slot()
+    
+    slot.take_bet()
+    # while balance is 2 or more and user input not n continue playing
+    while (purse.balance() >= 2) and slot.cont():
+        slot.pull_handle()
+        slot.show_slot()
+        slot.score_slot()
+        slot.take_bet()
+    else:
+        print("Your score is 0 thank you for playing")
+        print("You are leaving with", purse.balance())
