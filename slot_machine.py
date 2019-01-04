@@ -121,3 +121,5 @@ def run_slot_machine():
     else:
         print("Your score is 0 thank you for playing")
         print("You are leaving with", purse.balance())
+        
+run_slot_machine()
