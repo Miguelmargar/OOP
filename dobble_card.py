@@ -50,3 +50,30 @@ for i in r:
             # card.append((n+1 + n*k + (i*k+j)% n)+1)
             deck[c] = set(card)
 print(deck)
+
+def check_validity(deck, **kwargs):
+    
+    a = set()
+    b = set()
+    checked = []
+    # loop through the deck twice
+    for card_a in deck:
+        a = set(deck[card_a])
+        for card_b in deck:
+            b = set(deck[card_b])
+            
+            # don't check same decks
+            if a != b:
+                check_cards = b.intersection(a)
+                
+                # if verbose is True
+                if ("verbose" in kwargs) and (kwargs["verbose"] == True):
+                    print("intersection for card:", card_a, "and card", card_b, "is", check_cards)
+                    
+                # if no second argument given or different argument given or verbose not true
+                elif not kwargs or ("verbose" not in kwargs) or (kwargs["verbose"] != True):
+                    checked.append(check_cards) # appends the intersection image id
+            else:
+                pass
+    
+    print(checked)
