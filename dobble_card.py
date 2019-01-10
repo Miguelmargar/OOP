@@ -52,7 +52,9 @@ for i in r:
 print(deck)
 
 def check_validity(deck, **kwargs):
-    
+    """
+    Function to check that all cards match to each other in at least one emoji
+    """
     a = set()
     b = set()
     checked = []
@@ -77,3 +79,16 @@ def check_validity(deck, **kwargs):
                 pass
     
     print(checked)
+    
+
+class DobbleCard():
+    """
+    class to select one card at random from initial overall deck
+    """
+    # select random card from initial 'mother' deck
+    def __init__(self):
+        self.card = choice(list(deck.keys()))
+        
+    # return the card slected at random
+    def give_card(self):
+        return self.card
