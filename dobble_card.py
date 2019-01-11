@@ -92,3 +92,28 @@ class DobbleCard():
     # return the card slected at random
     def give_card(self):
         return self.card
+        
+class DobbleDeck(DobbleCard):
+    """
+    class to create a deck of size selected by user na diwth main game functionality
+    """
+    # initiate a new deck for instance game
+    def __init__(self):
+        self.instance_deck = []
+        
+    # adds cards from DobbleCard class to new deck created
+    def add_card(self):
+        self.rounds = int(input("How many cards (<56)?: "))
+        print("If you want to record a draw type 'd' or 'D'")
+        print()
+        count = self.rounds + 1
+        if count <= 56:
+            while count > 0:
+                x = DobbleCard()
+                x.give_card()
+                if not deck[x.give_card()] in self.instance_deck:
+                    self.instance_deck.append(deck[x.give_card()])
+                    count -= 1
+        else:
+            print("You can't play more than 56 cards at a time, please try again")
+            self.add_card()
