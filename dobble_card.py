@@ -117,3 +117,45 @@ class DobbleDeck(DobbleCard):
         else:
             print("You can't play more than 56 cards at a time, please try again")
             self.add_card()
+      
+    # funtion with main game functionality - display cards, get winner and keep score 
+    def play_card(self):
+        self.played1 = choice(self.instance_deck)
+        self.remove_card(self.played1)
+        self.played2 = choice(self.instance_deck)
+        self.remove_card(self.played2)
+        self.play_count = self.rounds + 1
+        counter_a = 0
+        counter_b = 0
+        while self.play_count > 0:
+            card1 = list(self.played1)
+            card2 = list(self.played2)
+            # print("this is card1", card1)
+            # print("this is card2", card2)
+            print()
+            print(card1[0], card1[1], card1[2], "\t", card2[0], card2[1], card2[2])
+            print(card1[3], card1[4], card1[5], "\t", card2[3], card2[4], card2[5])
+            print(card1[6], card1[7], "\t" * 2, card2[6], card2[7])
+            ask_win = input("Who wins (A or B)? ")
+            if (ask_win == "a" or ask_win == "A"):
+                counter_a += 1
+            elif (ask_win == "b" or ask_win == "B"):
+                counter_b += 1
+            self.played1 = self.played2
+            if not self.instance_deck == []:
+                self.played2 = choice(self.instance_deck)
+                self.remove_card(self.played2)
+                self.play_count -= 1
+                print()
+            else:
+                break
+            
+            print()
+            print("score")
+            print("A:", counter_a)
+            print("B:", counter_b)
+            
+    # removes card from instance deck when played
+    def remove_card(self, value):
+        self.instance_deck.remove(value)
+            
