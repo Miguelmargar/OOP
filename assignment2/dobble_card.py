@@ -8,7 +8,9 @@ lines = fin.readlines()
 
 for i, el in enumerate(lines):
     imageDict[i + 1] = emoji.emojize(el.strip())
-    print(i + 1, imageDict[i + 1], end = " ")
+    # the line below prints the different faces
+    # print(i + 1, imageDict[i + 1], end = " ")
+print()
     
     
 # code given to us by lecturer to obtain an initial deck of cards with 57 cards
@@ -30,7 +32,7 @@ for i in rp1:
 deck[c] = set(card)
 
 # n following cards
-fir j in r:
+for j in r:
     c = c+1
 #   card = [imageDict[1]]
     card = [1]
@@ -49,7 +51,7 @@ for i in r:
             card.append(imageDict[(n+1 + n*k + (i*k+j) % n)+1])
             # card.append((n+1 + n*k + (i*k+j)% n)+1)
             deck[c] = set(card)
-print(deck)
+# print(deck)
 
 def check_validity(deck, **kwargs):
     """
@@ -78,7 +80,7 @@ def check_validity(deck, **kwargs):
             else:
                 pass
     
-    print(checked)
+    # print(checked)
     
 
 class DobbleCard():
@@ -135,7 +137,7 @@ class DobbleDeck(DobbleCard):
             print()
             print(card1[0], card1[1], card1[2], "\t", card2[0], card2[1], card2[2])
             print(card1[3], card1[4], card1[5], "\t", card2[3], card2[4], card2[5])
-            print(card1[6], card1[7], "\t" * 2, card2[6], card2[7])
+            print(card1[6], card1[7], "\t", card2[6], card2[7])
             ask_win = input("Who wins (A or B)? ")
             if (ask_win == "a" or ask_win == "A"):
                 counter_a += 1
@@ -150,12 +152,16 @@ class DobbleDeck(DobbleCard):
             else:
                 break
             
-            print()
-            print("score")
-            print("A:", counter_a)
-            print("B:", counter_b)
+        print()
+        print("score")
+        print("A:", counter_a)
+        print("B:", counter_b)
             
     # removes card from instance deck when played
     def remove_card(self, value):
         self.instance_deck.remove(value)
             
+            
+d = DobbleDeck()
+d.add_card()
+d.play_card()
